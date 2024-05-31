@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("devesh.plugins", {
+require("lazy").setup({ { import = "devesh.plugins" }, { import = "devesh.plugins.lsp"} }, {
   checker = {
     enabled = true,
     notify  = false,
