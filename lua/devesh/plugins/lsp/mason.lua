@@ -34,6 +34,8 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"pyright",
+				"ruby_lsp",
+				"solargraph",
 			},
 		})
 
@@ -45,6 +47,7 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint",
+				"rubocop",
 			},
 		})
 	end,
