@@ -11,7 +11,6 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting a new one
 
-
 opt.wrap = false
 
 -- search settings
@@ -27,6 +26,3 @@ opt.signcolumn = "yes" -- show sign column so that tet doesn't shift
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
