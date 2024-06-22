@@ -38,23 +38,10 @@ return {
 			toggle_telescope(harpoon:list())
 		end, { desc = "Toggle Harpoon Quick Menu" })
 
-		keymap.set("n", "<leader>q1", function()
-			harpoon:list():select(1)
-		end, { desc = "Select the first Harpoon Quick Menu item" })
+		keymap.set("n", "<leader>qs", function()
+			harpoon:list():select(vim.v.count)
+		end, { desc = "Select the nth Harpoon Quick Menu item" })
 
-		keymap.set("n", "<leader>q2", function()
-			harpoon:list():select(2)
-		end, { desc = "Select the second Harpoon Quick Menu item" })
-
-		keymap.set("n", "<leader>q3", function()
-			harpoon:list():select(3)
-		end, { desc = "Select the third Harpoon Quick Menu item" })
-
-		keymap.set("n", "<leader>q4", function()
-			harpoon:list():select(4)
-		end, { desc = "Select the fourth Harpoon Quick Menu item" })
-
-		-- Toggle previous & next buffers stored within Harpoon list
 		keymap.set("n", "<leader>qp", function()
 			harpoon:list():prev()
 		end, { desc = "Select the previous Harpoon Quick Menu item" })
@@ -62,5 +49,17 @@ return {
 		keymap.set("n", "<leader>qn", function()
 			harpoon:list():next()
 		end, { desc = "Select the next Harpoon Quick Menu item" })
+
+		keymap.set("n", "<leader>qc", function()
+			harpoon:list():clear()
+		end, { desc = "Remove all items from Harpoon Quick Menu" })
+
+		keymap.set("n", "<leader>qd", function()
+			harpoon:list():remove_at(vim.v.count)
+			for i = vim.v.count, harpoon:list():length() - 1 do
+				local next_item = harpoon:list():get(i + 1)
+				harpoon:list():replace_at(i, next_item)
+			end
+		end, { desc = "Remove the nth Harpoon Quick Menu item" })
 	end,
 }
